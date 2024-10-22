@@ -5,9 +5,7 @@
 
 
 int registro()
-{  setlocale(LC_ALL, "Portuguese");
-
-    char arquivo[40];
+{   char arquivo[40];
 	char cpf[40];
 	char nome[40];
 	char sobrenome[40];
@@ -64,30 +62,33 @@ system("pause");
 }
 
 int consulta()
-{ setlocale(LC_ALL, "Portuguese");
+{setlocale(LC_ALL, "Portuguese");
 char cpf[40];
 char conteudo[200];
-
 printf("Digite o CPF a ser consultado:");
-scanf("%s",cpf);
+scanf("%s,",cpf);
 
-FILE *file;
+FILE * file;
 file = fopen(cpf,"r");
-
-if(file==NULL)
-{printf("Não encontrado cliente \n");}
-
-while(fgets(conteudo,200,file)!= NULL);
-
-{
-printf("\n Essas são as informaçoes do usuário");
+ if(file== NULL)
+ {
+ 	printf("Não foi possivel abrir o arquivo,não localizado\n");
+ }
+while(fgets(conteudo,200,file)!=NULL);
+{printf("\nEssas sãos as informaçoes do usuario:");
 printf("%s",conteudo);
 printf("\n\n");
-
 system("pause");
+}
 }
 
 int deletar()
+{printf("Voçê escolheu Deletar Nomes \n");
+ 	
+	 system("pause");
+ 	
+}
+
 
 int main()
 {
@@ -105,6 +106,7 @@ int main()
  printf("\t1  - Registro De Nomes \n");
  printf ("\t2  - Consulta De Nomes \n");
  printf("\t3  - Deletar Nomes \n\n\n");//final do menus
+ printf("Sair do Sistema");
  printf("Opção:");
  
  scanf("%d",&opcao);//armazendo a escolha
@@ -126,6 +128,10 @@ int main()
  		deletar();
  	break;
  	
+ 	case 4:
+ 		printf("Obrigado por utilizar o sistema");
+ 		return 0;
+		 break; 	
  	
  default:printf("ESSA OPÇÃO NÃO ESTA DISPONIVEL\n");
 	
